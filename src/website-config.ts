@@ -24,8 +24,8 @@ export interface WebsiteConfig {
 }
 
 const config: WebsiteConfig = {
-  title: 'Ghost',
-  description: 'The professional publishing platform',
+  title: 'Lutece',
+  description: 'Kotlin',
   coverImage: 'img/blog-cover.jpg',
   logo: 'img/ghost-logo.png',
   siteUrl: 'https://gatsby-casper.netlify.com',
