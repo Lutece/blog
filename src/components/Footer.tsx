@@ -74,21 +74,16 @@ const Footer: React.SFC = () => {
         <SiteFooterNav>
           <Link to="/">Latest Posts</Link>
           {config.facebook && (
-            <a href={config.facebook} target="_blank" rel="noopener noreferrer">
+            <a href={config.facebook} target="_blank" rel="">
               Facebook
             </a>
           )}
-          {config.twitter && (
-            <a href={config.twitter} target="_blank" rel="noopener noreferrer">
-              Twitter
+          {config.github && (
+            <a href={config.github} target="_blank" rel="">
+              Github
             </a>
           )}
-
-          <a href="https://ghost.org" target="_blank" rel="noopener noreferrer">
-            Ghost
-          </a>
-
-          <Link to="/rss.xml">RSS</Link>
+          {/* <Link to="/rss.xml">RSS</Link> */}
         </SiteFooterNav>
       </div>
     </footer>

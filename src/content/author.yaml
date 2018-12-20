@@ -12,4 +12,11 @@
   facebook: ghost
   website: https://ghost.org/
   location: On a plane
-  profile_image: img/alex-knight-326705-unsplash.jpg
+  profile_image: img/Neeko.jpg
+- id: Lutece
+  avatar: img/logo-icon.png
+  bio: 프론트엔드 개발 이야기를 기록합니다.
+  facebook: Lutece
+  website: https://blog.lutece.me/
+  location: On a plane
+  profile_image: img/Neeko.jpg

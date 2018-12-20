@@ -2,6 +2,7 @@ import { graphql, Link, StaticQuery } from 'gatsby';
 import * as React from 'react';
 import { css } from 'react-emotion';
 
+import logo from '../../content/img/logo-white.png';
 import config from '../../website-config';
 
 const SiteNavLogoStyles = css`
@@ -50,11 +51,7 @@ const SiteNavLogo = () => (
     // tslint:disable-next-line:react-this-binding-issue
     render={(data: SiteNavLogoProps) => (
       <Link className={`${SiteNavLogoStyles} site-nav-logo`} to="/">
-        {data.logo ? (
-          <img src={data.logo.childImageSharp.fixed.src} alt={config.title} />
-        ) : (
-          config.title
-        )}
+        {data.logo ? <img src={logo} alt={config.title} /> : config.title}
       </Link>
     )}
   />

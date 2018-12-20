@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 import { lighten } from 'polished';
 import * as React from 'react';
 
+import logoIcon from '../content/img/logo-icon.png';
 import styled, { css } from 'react-emotion';
 import { colors } from '../styles/colors';
 import { PageContext } from '../templates/post';
@@ -167,7 +168,7 @@ const StaticAvatar = css`
   width: 34px;
   height: 34px;
   border: #fff 2px solid;
-  border-radius: 100%;
+  // border-radius: 100%;
 `;
 
 const AuthorProfileImage = styled.img`
@@ -176,7 +177,6 @@ const AuthorProfileImage = styled.img`
   height: 100%;
   /* background: color(var(--lightgrey) l(+10%)); */
   background: ${lighten('0.1', colors.lightgrey)}
-  border-radius: 100%;
   object-fit: cover;
 `;
 
@@ -201,14 +201,13 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
       {post.frontmatter.image && (
         <Link className={`${PostCardImageLink} post-card-image-link`} to={post.fields.slug}>
           <PostCardImage className="post-card-image">
-            {post.frontmatter.image &&
-              post.frontmatter.image.childImageSharp.fluid && (
-                <Img
-                  alt={`${post.frontmatter.title} cover image`}
-                  style={{ height: '100%' }}
-                  fluid={post.frontmatter.image.childImageSharp.fluid}
-                />
-              )}
+            {post.frontmatter.image && post.frontmatter.image.childImageSharp.fluid && (
+              <Img
+                alt={`${post.frontmatter.title} cover image`}
+                style={{ height: '100%' }}
+                fluid={post.frontmatter.image.childImageSharp.fluid}
+              />
+            )}
           </PostCardImage>
         </Link>
       )}
@@ -234,7 +233,7 @@ const PostCard: React.SFC<PostCardProps> = ({ post }) => {
               >
                 <img
                   className={`${AuthorProfileImage}`}
-                  src={post.frontmatter.author.avatar.children[0].fixed.src}
+                  src={logoIcon}
                   alt={post.frontmatter.author.id}
                 />
               </Link>

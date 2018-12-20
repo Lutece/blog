@@ -16,7 +16,6 @@ const PageTemplate = css`
   }
 `;
 
-
 const About: React.SFC = () => (
   <IndexLayout>
     <Helmet>
@@ -36,7 +35,8 @@ const About: React.SFC = () => (
 
           <PostFullContent className="post-full-content">
             <div className="post-content">
-              <p>
+              루테스입니다.
+              {/* <p>
                 Ghost is professional publishing platform designed for modern journalism. This is a
                 demo site of a basic Ghost install to give you a general sense of what a new Ghost
                 site looks like when set up for the first time.
@@ -57,7 +57,7 @@ const About: React.SFC = () => (
                 If you need help with using Ghost, you'll find a ton of useful articles on{' '}
                 <a href="https://help.ghost.org">our knowledgebase</a>, as well as extensive{' '}
                 <a href="https://docs.ghost.org">developer documentation</a>.
-              </p>
+              </p> */}
             </div>
           </PostFullContent>
         </article>

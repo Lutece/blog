@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 import { css } from 'react-emotion';
 import Helmet from 'react-helmet';
-
+import logo from '../content/img/logo-white.png';
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
 import PostCard from '../components/PostCard';
@@ -102,10 +102,7 @@ const IndexPage: React.SFC<IndexProps> = props => {
         <meta name="twitter:title" content={config.title} />
         <meta name="twitter:description" content={config.description} />
         <meta name="twitter:url" content={config.siteUrl} />
-        <meta
-          name="twitter:image"
-          content={props.data.header.childImageSharp.fluid.src}
-        />
+        <meta name="twitter:image" content={props.data.header.childImageSharp.fluid.src} />
         <meta name="twitter:site" content={`@${config.twitter.split('https://twitter.com/')[0]}`} />
         <meta property="og:image:width" content={width} />
         <meta property="og:image:height" content={height} />
@@ -122,8 +119,8 @@ const IndexPage: React.SFC<IndexProps> = props => {
               <SiteTitle>
                 {props.data.logo ? (
                   <img
-                    style={{ maxHeight: '45px' }}
-                    src={props.data.logo.childImageSharp.fixed.src}
+                    style={{ maxHeight: '45px', marginBottom: '35px' }}
+                    src={logo}
                     alt={config.title}
                   />
                 ) : (
