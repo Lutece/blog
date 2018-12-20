@@ -208,19 +208,19 @@ const PageTemplate: React.SFC<PageTemplateProps> = props => {
   const post = props.data.markdownRemark;
   let width = '';
   let height = '';
-  if (post.frontmatter.image) {
-    width = post.frontmatter.image.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
-    height = String(Number(width) / post.frontmatter.image.childImageSharp.fluid.aspectRatio);
-  }
+  // if (post.frontmatter.image) {
+  //   width = post.frontmatter.image.childImageSharp.fluid.sizes.split(', ')[1].split('px')[0];
+  //   height = String(Number(width) / post.frontmatter.image.childImageSharp.fluid.aspectRatio);
+  // }
 
   return (
     <IndexLayout className="post-template">
       <Helmet>
-        <title>{post.frontmatter.title}</title>
+        <title>{'Lutece blog'}</title>
 
         <meta property="og:site_name" content={config.title} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={post.frontmatter.title} />
+        <meta property="og:title" content={'Lutece blog'} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:url" content={config.siteUrl + props.pathContext.slug} />
         {post.frontmatter.image && (
@@ -251,8 +251,8 @@ const PageTemplate: React.SFC<PageTemplateProps> = props => {
           name="twitter:creator"
           content={`@${config.twitter.split('https://twitter.com/')[0]}`}
         />
-        {width && <meta property="og:image:width" content={width} />}
-        {height && <meta property="og:image:height" content={height} />}
+        {/* {width && <meta property="og:image:width" content={width} />}
+        {height && <meta property="og:image:height" content={height} />} */}
       </Helmet>
       <Wrapper className={`${PostTemplate}`}>
         <header className={`${SiteHeader} ${outer}`}>
@@ -325,7 +325,7 @@ export default PageTemplate;
 
 export const query = graphql`
   query($slug: String, $primaryTag: String) {
-    logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
+    logo: file(relativePath: { eq: "img/lutece-logo.png" }) {
       childImageSharp {
         fixed {
           ...GatsbyImageSharpFixed
