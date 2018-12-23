@@ -6,7 +6,7 @@ import styled, { css } from 'react-emotion';
 import { SocialLink } from '../../styles/shared';
 import config from '../../website-config';
 import Facebook from '../icons/facebook';
-import Github from '../icons/Github';
+import Github from '../icons/github';
 import SubscribeModal from '../subsribe/SubscribeOverlay';
 import SiteNavLogo from './SiteNavLogo';
 
@@ -164,7 +164,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNaveState> {
                 <Facebook />
               </a>
             )}
-            {config.twitter && (
+            {config.github && (
               <a className={`${SocialLink}`} href={config.github} title="Twitter" target="_blank">
                 <Github />
               </a>
