@@ -86,6 +86,10 @@ const Footer: React.SFC = () => {
           {/* <Link to="/rss.xml">RSS</Link> */}
         </SiteFooterNav>
       </div>
+      <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/solid.js" />
+      <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/regular.js" />
+      <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/brands.js" />
+      <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/fontawesome.js" />
     </footer>
   );
 };

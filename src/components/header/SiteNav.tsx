@@ -136,6 +136,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNaveState> {
     const { isHome = false } = this.props;
     return (
       <nav className={`${isHome ? HomeNavRaise : ''} ${SiteNavStyles}`}>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" />
         <SiteNavLeft>
           {!isHome && <SiteNavLogo />}
           <ul className={`${NavStyles}`} role="menu">
