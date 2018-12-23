@@ -65,7 +65,7 @@ const Tags: React.SFC<TagTemplateProps> = props => {
           {tag} - {config.title}
         </title>
         <meta property="og:site_name" content={config.title} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="tech blog" />
         <meta property="og:title" content={`${tag} - ${config.title}`} />
         <meta property="og:url" content={config.siteUrl + props.pathContext.slug} />
         <meta property="article:publisher" content={config.facebook} />
