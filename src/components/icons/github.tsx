@@ -2,6 +2,6 @@
 import * as React from 'react';
 
 const InfinityIcon: React.SFC = () => (
-  <i style={{ fontSize: '22px' }} class="fab fa-github-square" />
+  <i style={{ fontSize: '22px' }} className="fab fa-github-square" />
 );
 export default InfinityIcon;
