@@ -1,0 +1,49 @@
+$bodyBgCommonColor = #f7f7f7
+$mainBgCommonColor = #ffffff
+
+$bodyBgDarkColor = #191919
+$mainBgDarkColor = #313131
+
+html
+  font-size 10px
+  -webkit-text-size-adjust 100%
+
+p
+h1
+h2
+h3
+h4
+h5
+h6
+  margin 0
+
+a
+  text-decoration none
+
+
+body
+  background-color $bodyBgCommonColor
+  font-family: 'Noto Sans', sans-serif
+  -moz-osx-font-smoothing grayscale
+  -webkit-font-smoothing antialiased
+  overflow-x hidden
+
+  .blog
+    max-width 1170px
+    min-height 100vh
+    background-color $mainBgCommonColor
+    margin: 0 auto
+
+    .content
+      box-sizing border-box
+      max-width 770px
+      width 100%
+      padding: 80px 10px 10px;
+      margin 0 auto
+
+@media (prefers-color-scheme dark)
+  body
+    background-color $bodyBgDarkColor
+
+    .blog
+      background-color $mainBgDarkColor
