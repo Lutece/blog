@@ -5,7 +5,7 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo deploy",
+    "deploy": "hexo clean && hexo generate && curl -X POST -d {} https://api.netlify.com/build_hooks/60ca01535639d9e285a01011",
     "server": "hexo server"
   },
   "hexo": {
