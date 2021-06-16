@@ -23,7 +23,7 @@ disqus: true
 disqus_shortname: lutece-blog
 
 # google analytics
-googleTrackId:
+googleTrackId: G-2NE2JEKX4S
 
 # baidu analytics
 baiduTrackId:
