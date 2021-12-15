@@ -5,7 +5,7 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "deploy": "git add -A && git commit -m 'generate post' && git push origin dev && hexo clean && hexo generate && curl -X POST -d {} https://api.netlify.com/build_hooks/60ca01535639d9e285a01011",
+    "deploy": "git add -A && git commit -m 'generate post' && git push origin master && hexo clean && hexo generate && curl -X POST -d {} https://api.netlify.com/build_hooks/60ca01535639d9e285a01011",
     "server": "hexo server"
   },
   "hexo": {
