@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Lutece | Frontend, Mobile Application, WebGL Engineer</title>
+  <title>타입스크립트 - &#39;안전한&#39;에 대하여 | Lutece | Frontend, Mobile Application, WebGL Engineer</title>
 
   
   <meta name="author" content="Seonghoon Baek" />
@@ -21,6 +21,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
+  
+  <meta property="og:title" content="타입스크립트 - &#39;안전한&#39;에 대하여" />
   
 
   <meta property="og:site_name" content="Lutece" />
@@ -79,12 +81,11 @@
 </header>
 
     <main class="site-main posts-loop">
-    
-  <article>
+    <article>
 
   
     
-    <h3 class="article-title"><a href="/2021/12/15/typescript-safe/"><span>타입스크립트 - &#39;안전한&#39;에 대하여</span></a></h3>
+    <h3 class="article-title"><span>타입스크립트 - &#39;안전한&#39;에 대하여</span></h3>
     
   
 
@@ -112,9 +113,6 @@
 <p>그런데 자바스크립트는 언제 문제가 발생되었다고 알려줄까?<br><strong>자바스크립트는 코드를 실행하는 시점에 알려준다.</strong><br>작성 시점이 아닌 코드의 실행 시점에 문제가 발생하기 때문에<br>이미 유저에게 서빙되고 있는 코드가 문제가 있는 상황에서도<br>그 코드가 실제로 실행되는 시점이 오지 않는 한<br>문제가 있는 지 없는 지 알기 어려운 상황에 놓여진다.</p>
 <p>그래서 타입스크립트가 등장했다.<br><strong>타입스크릡트의 가장 큰 매력은 에러를 알려주는 시점에 있다.</strong><br>텍스트 편집기에 코드를 작성하는 순간마다 에러가 발생될 여지가 보인다면 바로 에러 메세지를 노출시킨다.<br>그래서 타입스크립트로 코드를 작성하게 되면 타입 수준으로 먼저 생각하고 코드를 작성할 수 있게 된다.<br><strong>개발자가 다루는 데이터의 범주가 예측 가능한 상태로 코드를 작성하기 때문에<br>더 유지하기 쉬운 프로그램을 설계할 수 있다.</strong></p>
 
-        
-          <p><a class="excerpt-btn" href="2021/12/15/typescript-safe/"><span>더 보기</span></a></p>
-        
       
     </div>
 
@@ -144,25 +142,40 @@
     </div>
 
     
-    <div class="article-meta pull-right">
-      <span>
-        <i class="icon-comments"></i>
-        <span>
-          <a href="/2021/12/15/typescript-safe/#comment">댓글</a>
-        </span>
-      </span>
-    </div>
-    
   </div>
 </article>
 
-
-
-
-<nav class="pagination">
   
-  
-</nav>
+
+
+
+	<section id="comment" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'lutece-blog';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+
     </main>
 
     <footer class="site-footer">
