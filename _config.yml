@@ -4,9 +4,9 @@
 
 # Site
 title: Lutece
-subtitle: "Frontend, Mobile Application, WebGL Engineer"
+subtitle: "Frontend Engineer"
 description: "I'm Programming Engineer who loves The Rendering System."
-keywords: "Flutter, React, Next.js, Frontend, IOS, Android, Programming"
+keywords: "React, Next.js, Framer Motion, Recoil, React-Query"
 author: Seonghoon Baek
 language: kr
 timezone: ""
@@ -103,3 +103,9 @@ theme: Hacker
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ""
+
+excerpt:
+  depth: 20
+  excerpt_excludes: []
+  more_excludes: []
+  hideWholePostExcerpts: true

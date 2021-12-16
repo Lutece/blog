@@ -118,6 +118,13 @@ abbr[title] {
 b,
 strong {
   font-weight: bold;
+  color: #f03838;
+}
+
+@media (prefers-color-scheme: dark) {
+  strong {
+    color: #ff6559;
+  }
 }
 
 /**
