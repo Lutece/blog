@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>타입스크립트의 컴파일 과정 | Lutece | Frontend Engineer</title>
+
+  
+  <meta name="author" content="Seonghoon Baek" />
+   
+  <meta name="description" content="I&#39;m Programming Engineer who loves The Rendering System." />
+   
+  <meta name="keywords" content="React, Next.js, Framer Motion, Recoil, React-Query" />
+  
+
+  <meta
+    id="viewport"
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"
+  />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  
+  <meta property="og:title" content="타입스크립트의 컴파일 과정" />
+  
+
+  <meta property="og:site_name" content="Lutece" />
+
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+
+  <link href="/favicon.ico" rel="icon" />
+  <link
+    rel="alternate"
+    href="/atom.xml"
+    title="Lutece"
+    type="application/atom+xml"
+  />
+  <link
+    rel="stylesheet"
+    href="/css/style.css"
+    media="screen"
+    type="text/css"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Lutece</a>
+    </h1>
+    <p class="site-description">Frontend Engineer</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">홈</a></li>
+      
+        <li><a href="/archives">아카이브</a></li>
+      
+        <li><a href="/categories">카테고리</a></li>
+      
+        <li><a href="/tags">태그</a></li>
+      
+        <li><a href="/about">글쓴이</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>타입스크립트의 컴파일 과정</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/12/16/typescript-process/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-12-16T07:42:04.701Z">
+          2021-12-16
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>타입스크립트로 작성된 코드가 어떻게 유저에게 전달되는 지에 대한 과정을 간단히 정리해보았다.</p>
+<span id="more"></span>
+
+<p>개발자가 타입스크립트로 코드를 작성하면<br><strong>타입스크립트 컴파일러(TSC)</strong> 는 <strong>타입스크립트 코드를 AST(추상 구문 트리)라는 자료구조로 코드를 변환</strong> 하게 된다.</p>
+<p>이 과정에서 코드를 읽는 과정에서 필요하지 않는 정보는 모두 제거된다.<br>예를 들어 공백 혹은 주석과 같은 것들을 말한다.</p>
+<p>그 다음 <strong>타입 검사기(Typechecker)</strong> 가 코드의 타입 안정성을 검증하는 절차를 거친다.<br>이 때, 타입정보가 일치하지 않는 경우가 발생되면 타입검사기는 오류를 표시한다.<br>타입 검사기가 문제가 없다고 판단이 된 경우 다음 과정으로 넘어가게 된다.<br><strong>이 과정까지 타입스크립트의 타입 정보가 사용된다.</strong></p>
+<p>다음으로 타입스크립트 AST를 자바스크립트 소스로 변환하게 된다.<br>자바스크립트 소스는 다시 자바스크립트 AST로 변환된다.<br>그 이후에, AST 구조로 짜여진 코드는 bytecode라는 형태로 변환하게 되며<br>Runtime이라는 실행 환경에서 bytecode로 변환된 코드가 실행된다.</p>
+<p>만약 컴파일의 과정이 느리거나 문제가 발생된다면 이 과정을 단계적으로 평가해보는 시도를 해보자</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">타입스크립트의 컴파일 과정</span><br><span class="line"></span><br><span class="line">- 개발자가 타입스크립트 코드를 작성한다.</span><br><span class="line"></span><br><span class="line">- 타입스크립트 코드를 AST(추상구문트리)라는 자료구조로 변환한다</span><br><span class="line"></span><br><span class="line">- 타입검사기(Typechecker)가 코드의 타입 안정성을 검증한다.</span><br><span class="line">  **아래에서부터는 타입스크립트의 타입 정보가 사용되지 않는다.**</span><br><span class="line"></span><br><span class="line">- 타입스크립트 AST → 자바스크립트 소스로 변환</span><br><span class="line"></span><br><span class="line">- 자바스크립트 소스 → 자바스크립트 AST로 변환</span><br><span class="line"></span><br><span class="line">- AST → Bytecode로 변환한다.</span><br><span class="line"></span><br><span class="line">- Runtime이라는 다른 프로그램에 Bytecode를 입력해 평가하고 결과를 얻는다.</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/타입스크립트/">타입스크립트</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/타입스크립트/">타입스크립트</a><a href="/tags/typescript/">typescript</a><a href="/tags/타입스크립트-컴파일-과정/">타입스크립트 컴파일 과정</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+	<section id="comment" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'lutece-blog';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2021 Seonghoon Baek
+    
+  </p>
+</footer>
+    
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    (i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date());
+    (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "//www.google-analytics.com/analytics.js",
+    "ga"
+  );
+
+  ga("create", "G-4BWFQT48GD", "auto");
+  ga("send", "pageview");
+</script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-4BWFQT48GD"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-4BWFQT48GD");
+</script>
+
+
+    
+  </div>
+</div>
+</body>
+</html>
